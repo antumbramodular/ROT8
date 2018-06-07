@@ -1,0 +1,65 @@
+#######################################
+# Syntax Coloring Map For ShiftOutX  
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+ShiftOutX	KEYWORD1
+shiftOutX	KEYWORD1
+ShiftPinNo	KEYWORD1
+shiftInfo	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+shiftOut_16	KEYWORD2
+shiftOut_24	KEYWORD2
+shiftOut_32	KEYWORD2
+shiftOut_X	KEYWORD2
+pinOn	KEYWORD2
+pinOff	KEYWORD2
+pinState	KEYWORD2
+allOn	KEYWORD2
+allOff	KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+ON	LITERAL1
+OFF	LITERAL1
+shPin1	LITERAL1
+shPin2 	LITERAL1
+shPin3 	LITERAL1
+shPin4 	LITERAL1
+shPin5 	LITERAL1
+shPin6 	LITERAL1
+shPin7 	LITERAL1
+shPin8 	LITERAL1
+shPin9 	LITERAL1
+shPin10 	LITERAL1
+shPin11 	LITERAL1
+shPin12 	LITERAL1
+shPin13 	LITERAL1
+shPin14 	LITERAL1
+shPin15 	LITERAL1
+shPin16 	LITERAL1
+shPin17 	LITERAL1
+shPin18 	LITERAL1
+shPin19 	LITERAL1
+shPin20 	LITERAL1
+shPin21 	LITERAL1
+shPin22 	LITERAL1
+shPin23 	LITERAL1
+shPin24 	LITERAL1
+shPin25 	LITERAL1
+shPin26 	LITERAL1
+shPin27 	LITERAL1
+shPin28 	LITERAL1
+shPin29 	LITERAL1
+shPin30 	LITERAL1
+shPin31 	LITERAL1
+shPin32 	LITERAL1
