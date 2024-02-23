@@ -8,7 +8,7 @@ void trig() {
       if (resetCount != 0) {
         if (stepCount >= resetCount) {
           clk = 0;
-          playhead = 0;
+          playhead = firstStep;
           stepCount = 0;
           setplayhead();
         }
@@ -61,17 +61,20 @@ void trig() {
         //PLAYMODES:
         switch (playMode) {
           case 0:
-            //FWD
+            // play forward, wrapping from last to first
             clk++;
             if (clk > lastStep) {
-              clk = 0;
+              clk = firstStep;
+            }
+            if (clk < firstStep) {
+              clk = firstStep;
             }
             break;
 
           case 1:
-            //BWD
+            // play backward, wrapping from first to last
             clk--;
-            if (clk < 0) {
+            if (clk < firstStep) {
               clk = lastStep;
             }
             if (clk > lastStep) {
@@ -85,7 +88,7 @@ void trig() {
               pendulum = true;
             }
 
-            if (clk <= 0) {
+            if (clk <= firstStep) {
               pendulum = false;
             }
 
@@ -98,7 +101,7 @@ void trig() {
 
           case 3:
             //RAND MODE
-            rstep = random(0, lastStep + 1);
+            rstep = random(firstStep, lastStep + 1);
             clk = rstep;
             break;
         }

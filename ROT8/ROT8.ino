@@ -3,13 +3,15 @@
 #include <EEPROMex.h>
 #include <EEPROMVar.h>
 
-#define latchPin 5         //Pin connected to latch pin (ST_CP) of 74HC595
-#define clockPin 6         //Pin connected to clock pin (SH_CP) of 74HC595
-#define dataPin 4          //Pin connected to Data pin (DS) of 74HC595
+// 74HC595
+#define latchPin 5         //Pin connected to latch pin (ST_CP)
+#define clockPin 6         //Pin connected to clock pin (SH_CP)
+#define dataPin 4          //Pin connected to Data pin (DS)
 
-#define indataPin 8        // Pin 3 of CD4021
-#define inclockPin 9       // Pin 10 of CD4021
-#define inlatchPin 10      // Pin 9 of CD4021
+// CD4021
+#define indataPin 8        // Pin 3
+#define inclockPin 9       // Pin 10
+#define inlatchPin 10      // Pin 9
 
 #define clkIn 2            // Clock jack input pin
 #define resPin 3            // Reset jack input pin
@@ -28,15 +30,21 @@
 shiftOutX regOne(5, 4, 6, MSBFIRST, 3);
 byte RegisterValue = 72;
 byte pRegisterValue = 0;
-long pin[24] = {shPin1, shPin2, shPin3, shPin4, shPin5, shPin6, shPin7, shPin8, shPin9, shPin10, shPin11, shPin12, shPin13, shPin14, shPin15, shPin16, shPin17, shPin18, shPin19, shPin20, shPin21, shPin22, shPin23, shPin24};
+long pin[24] = {
+  shPin1, shPin2, shPin3, shPin4, shPin5, shPin6, shPin7, shPin8, shPin9,
+  shPin10, shPin11, shPin12, shPin13, shPin14, shPin15, shPin16, shPin17,
+  shPin18, shPin19, shPin20, shPin21, shPin22, shPin23, shPin24
+  };
 
 //defaults
 bool seq[8];
 
+int firstStep = 0;
 int lastStep = 7;
 int gateTime = 50;
 int menuCurs = 0;
 int gateSelect = 0;
+// gate lengths as a percentage of time between last two clock inputs
 int gateBank[] = {5, 13, 25, 38, 50, 63, 75, 88};
 int gateMode[] = {0, 0, 0, 0, 0, 0, 0, 0};
 int repeats[] = {0, 0, 0, 0, 0, 0, 0, 0};
@@ -110,8 +118,9 @@ bool gateHold = false;
 int repeatCount = 0;
 int resetCount = 0;
 int resetSelected = 0;
+// reset sequence after total steps, including stage repeats
 int resetBank[] = {0, 4, 8, 16, 32, 64, 128, 256};
-long stepCount = 0;
+long stepCount = 0;  // incrementer for total steps, including stage repeats
 unsigned long sButtonTimer[8];
 unsigned long repBlinkMillis0 = 0;
 unsigned long repBlinkMillis1 = 0;
@@ -215,7 +224,7 @@ void loop() {
   if (resIn != pRes) {
     if (resIn == LOW) {
       clk = 0;
-      playhead = 0;
+      playhead = firstStep;
       stepCount = 0;
       setplayhead();
     }
