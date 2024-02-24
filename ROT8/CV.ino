@@ -48,10 +48,11 @@ void CV() {
 void setParam(int paramMode, int param) {
   switch (paramMode) {
     case 0:
-      // sets first step in sequence
-      firstStep = param;
+      // offsets the play head
+      clk = param;
+      playhead = clk;
+      setplayhead();
       break;
-
     case 1:
       // sets gate length
       gateCV = param;
@@ -83,6 +84,10 @@ void setParam(int paramMode, int param) {
 
         pulse = currentMillis - pw;
       }
+      break;
+    case 4:
+      // sets first step in sequence
+      firstStep = param;
       break;
   }
 

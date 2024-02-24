@@ -225,12 +225,12 @@ void state(int i) {
     if (mode == 2 && sButtonActive[i] && !repeatsMenu) {
       sButtonActive[i] = false;
       if (menuCurs == 0) {
-        if (i < 4) {
+        if (i < 5) {
           CVmode = i;
         }
       }
       if (menuCurs == 1) {
-        if (i < 4) {
+        if (i < 5) {
           potMode = i;
         }
       }
@@ -260,7 +260,7 @@ void state(int i) {
       saveState();
     }
 
-    //if mode is 6, buttons select repats
+    //if mode is 6, buttons select repeats
     if (mode == 6 && sButtonActive[i] && !repeatsMenu) {
       sButtonActive[i] = false;
       fclick = false;

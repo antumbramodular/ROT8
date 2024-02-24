@@ -25,16 +25,11 @@
 #define but2 12            // Button 2 input
 #define but3 13            // Button 3 input
 
-
 //registers
 shiftOutX regOne(5, 4, 6, MSBFIRST, 3);
 byte RegisterValue = 72;
 byte pRegisterValue = 0;
-long pin[24] = {
-  shPin1, shPin2, shPin3, shPin4, shPin5, shPin6, shPin7, shPin8, shPin9,
-  shPin10, shPin11, shPin12, shPin13, shPin14, shPin15, shPin16, shPin17,
-  shPin18, shPin19, shPin20, shPin21, shPin22, shPin23, shPin24
-  };
+long pin[24] = {shPin1, shPin2, shPin3, shPin4, shPin5, shPin6, shPin7, shPin8, shPin9, shPin10, shPin11, shPin12, shPin13, shPin14, shPin15, shPin16, shPin17, shPin18, shPin19, shPin20, shPin21, shPin22, shPin23, shPin24};
 
 //defaults
 bool seq[8];
